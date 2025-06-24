@@ -1,91 +1,654 @@
-Retrieval-Augmented Generation: A Comprehensive Analysis of Modern AI Systems
+The Pitchstone Platform consists of a series of tables containing your organization’s important data. These tables are customized to fit the needs and architecture of your specific organization. They are broadly divided into two categories: base tables and custom views.
 
-Introduction
 
-Retrieval-Augmented Generation (RAG) represents a paradigm shift in artificial intelligence, combining the power of large language models with external knowledge retrieval to create more accurate, factual, and contextually relevant responses. This hybrid approach addresses one of the fundamental limitations of traditional language models: their static knowledge cutoff and inability to access real-time or domain-specific information. RAG systems have emerged as a critical solution for applications requiring up-to-date information, factual accuracy, and domain expertise.
+Broadly, base tables contain the foundational data, divided and organized based on existing organization architecture and workflows. For instance, an organization that is tracking its retail development via the platform may have base tables that include target area data, store data, task data, and contacts data.
 
-The fundamental architecture of RAG consists of two primary components: a retrieval system that searches through external knowledge sources and a generation system that produces responses based on both the retrieved information and the model's pre-trained knowledge. This dual approach enables RAG systems to provide more reliable, verifiable, and contextually appropriate responses compared to standalone language models.
 
-Historical Context and Development
+Custom views are tables which you — and any other users — can customize to quickly locate and reference any data that will help you do your job. This data can be pulled from multiple base tables and gathered into a single location for quick viewing.
 
-The concept of combining retrieval with generation in natural language processing has evolved significantly over the past decade. Early approaches focused on simple document retrieval followed by template-based response generation. However, the advent of transformer-based language models and advances in information retrieval techniques have enabled more sophisticated integration between these components.
 
-The term "Retrieval-Augmented Generation" was popularized by Lewis et al. in their 2020 paper, which introduced a framework for combining dense retrieval with sequence-to-sequence generation. This work demonstrated that RAG systems could outperform traditional language models on knowledge-intensive tasks while maintaining fluency and coherence in generated text.
+This guide covers base tables — how to organize, configure, and reference them to help effectively track and automate your organization’s processes.
 
-Since then, RAG has become increasingly prevalent in commercial applications, with major technology companies implementing RAG-based systems for customer service, content generation, and information retrieval. The approach has proven particularly valuable in domains where accuracy and timeliness are critical, such as healthcare, finance, and legal services.
 
-Architecture and Components
+Table of contents:
+* Getting started
+* Data
+   * Sorting, filtering, and grouping table data
+   * Managing table display
+   * Adding a new record
+   * Additional options for records
+   * Exporting your table
+* Form
+* Fields
+* Access
+* History
+* Settings[a]
 
-RAG systems typically employ a three-stage pipeline: indexing, retrieval, and generation. The indexing stage involves processing and storing external knowledge sources in a format optimized for efficient retrieval. This often includes creating dense vector representations of documents using encoder models, which enable semantic similarity searches.
 
-The retrieval stage identifies the most relevant documents or passages from the knowledge base given a user query. This can be accomplished through various methods, including sparse retrieval (e.g., BM25), dense retrieval using neural encoders, or hybrid approaches that combine multiple retrieval strategies. The retrieved documents are then ranked and filtered to select the most relevant information for the generation stage.
 
-The generation stage combines the retrieved information with the user's query to produce a coherent and accurate response. This typically involves a large language model that has been fine-tuned to incorporate external knowledge effectively. The model must learn to balance information from the retrieved documents with its pre-trained knowledge, ensuring that the final response is both factual and contextually appropriate.
 
-Key Advantages and Benefits
+Getting started
+Your company’s base tables can be found on the lefthand taskbar, underneath the Base[b] header.
 
-RAG systems offer several significant advantages over traditional language models. First and foremost, they address the knowledge cutoff problem by enabling access to current information. This is particularly important for applications requiring up-to-date data, such as news analysis, financial reporting, or technical documentation.
 
-Second, RAG systems improve factual accuracy by grounding responses in verifiable sources. This reduces the likelihood of hallucination, a common problem with large language models where they generate plausible but incorrect information. By retrieving relevant documents, RAG systems can provide citations and evidence for their responses, increasing transparency and trustworthiness.
+  
 
-Third, RAG enables domain-specific customization without requiring extensive retraining. Organizations can simply update their knowledge base with relevant documents, allowing the system to provide specialized information without modifying the underlying language model. This makes RAG particularly valuable for enterprise applications where domain expertise is critical.
 
-Fourth, RAG systems can handle long-form content more effectively than traditional language models, which often have context length limitations. By retrieving relevant passages, RAG can process and synthesize information from documents that exceed the model's maximum input length.
 
-Applications and Use Cases
+In this example, this organization is divided into a series of base tables that each cover a different facet of opening and running physical sites. Your company’s base tables may be organized or labeled differently, depending on the needs and architecture of your company.
 
-RAG systems have found widespread application across numerous domains. In customer service, RAG-powered chatbots can access product documentation, FAQs, and knowledge bases to provide accurate and helpful responses to customer inquiries. This reduces the need for human intervention while improving customer satisfaction through more relevant and accurate information.
 
-In healthcare, RAG systems can assist medical professionals by retrieving relevant research papers, clinical guidelines, and patient records. This enables more informed decision-making while ensuring that recommendations are based on current medical knowledge and best practices.
+We’ll start by looking at the Target table. This table contains a list of geographic areas where future sites may be opened. As with every other base table, it contains a series of options listed in its header. 
 
-In legal services, RAG can help lawyers and legal professionals by retrieving relevant case law, statutes, and legal precedents. This accelerates legal research and ensures that legal advice is grounded in current and applicable legal frameworks.
 
-In education, RAG systems can provide personalized tutoring by retrieving relevant educational materials and adapting explanations to individual student needs. This enables more effective learning experiences while ensuring that information is accurate and up-to-date.
+  
 
-In content creation, RAG can assist writers and journalists by retrieving relevant background information, statistics, and source materials. This improves the quality and accuracy of generated content while reducing research time.
 
-Technical Challenges and Limitations
 
-Despite their advantages, RAG systems face several technical challenges that must be addressed for optimal performance. One of the primary challenges is retrieval quality, which directly impacts the accuracy of generated responses. Poor retrieval can lead to irrelevant information being incorporated into responses, reducing overall quality.
+These include:
+* Data
+* Form
+* Fields
+* Access
+* History
+* Settings
 
-Retrieval quality depends on several factors, including the quality of the knowledge base, the effectiveness of the retrieval model, and the relevance ranking algorithms. Ensuring comprehensive coverage of the target domain while maintaining high-quality, up-to-date information requires significant ongoing effort and resources.
 
-Another challenge is the integration between retrieval and generation components. The retrieved information must be effectively incorporated into the generation process without disrupting the fluency and coherence of the response. This requires careful tuning of the generation model and potentially specialized training approaches.
+Data
+Data is the default table display. It shows all the data that has been added to this table. Within this table, you can add, delete, and change the data that appears in this table and the subsequent sections.
 
-Context length limitations remain a challenge, particularly when dealing with long documents or multiple retrieved passages. While RAG can help address this by retrieving relevant portions of documents, there are still practical limits on how much retrieved information can be effectively incorporated into a single response.
 
-Privacy and security concerns also arise when RAG systems access external knowledge sources. Organizations must ensure that sensitive information is properly protected and that access controls are implemented to prevent unauthorized retrieval of confidential data.
+The Data table is made up of all the fields that have been created for this base table, organized into columns in the table. To create and/or manage fields, check out the Fields section below[c]. 
 
-Evaluation and Metrics
 
-Evaluating RAG systems requires a comprehensive approach that considers both retrieval and generation quality. Traditional metrics for information retrieval, such as precision, recall, and mean reciprocal rank, are important for assessing the quality of the retrieval component.
+The lines of the Data table are “records”, each of which include data for the fields that make up the table.
 
-For the generation component, metrics such as BLEU, ROUGE, and BERTScore can be used to evaluate fluency and coherence. However, these metrics may not fully capture the factual accuracy and relevance of RAG-generated responses.
 
-Human evaluation remains crucial for assessing the overall quality of RAG systems. This typically involves human annotators evaluating responses for accuracy, relevance, fluency, and helpfulness. Human evaluation can identify issues that automated metrics may miss, such as subtle factual errors or inappropriate tone.
+Sorting, filtering, and grouping table data
+Data in the table can be sorted, filtered, and grouped by any field column. To sort by a given column, simply click on that column, or right-click on the column, then choose Sort Ascending or Sort Descending.
 
-Recent research has also introduced specialized metrics for RAG evaluation, such as faithfulness (measuring how well the response reflects the retrieved information) and answerability (measuring whether the retrieved information is sufficient to answer the query).
 
-Future Directions and Research Opportunities
+  
 
-The field of RAG continues to evolve rapidly, with several promising research directions emerging. One area of active research is improving retrieval quality through more sophisticated retrieval models and ranking algorithms. This includes exploring multi-modal retrieval, which can incorporate images, audio, and other media types alongside text.
 
-Another promising direction is the development of more efficient RAG architectures that can handle larger knowledge bases and provide faster response times. This includes research into approximate retrieval methods, caching strategies, and distributed retrieval systems.
 
-Personalization and adaptation represent another important research area. Future RAG systems may be able to learn user preferences and adapt their retrieval and generation strategies accordingly. This could enable more personalized and contextually appropriate responses.
+To filter your table by a column value, only displaying entries that match that value, click the filter icon on that column.
 
-Integration with other AI technologies, such as reasoning systems and knowledge graphs, could further enhance RAG capabilities. This could enable more sophisticated reasoning about retrieved information and better integration of structured and unstructured knowledge.
 
-Ethical considerations and responsible AI development will also be crucial for the future of RAG. This includes addressing issues of bias in retrieval and generation, ensuring transparency in information sources, and developing methods for detecting and mitigating misinformation.
+  
 
-Conclusion
 
-Retrieval-Augmented Generation represents a significant advancement in artificial intelligence, offering a practical solution to many of the limitations of traditional language models. By combining the power of large language models with external knowledge retrieval, RAG systems can provide more accurate, factual, and contextually relevant responses.
 
-The widespread adoption of RAG across various domains demonstrates its practical value and potential for impact. However, realizing the full potential of RAG requires addressing technical challenges, developing appropriate evaluation methods, and ensuring responsible deployment.
+In this case, since the field contains three options, you can choose to filter your table by any of those options (or all/none of them).
 
-As the field continues to evolve, RAG systems are likely to become increasingly sophisticated and capable. Future developments in retrieval quality, generation integration, and system efficiency will enable new applications and use cases that are currently beyond reach.
 
-The success of RAG also highlights the importance of hybrid approaches in artificial intelligence, where combining multiple techniques can achieve better results than any single approach alone. This lesson is likely to influence the development of other AI systems and applications in the years to come.
+Unchecking one of the options will filter out all records with that value, leaving only the remaining records in the table.
 
-Ultimately, RAG represents not just a technical innovation but a fundamental shift in how we think about AI systems and their relationship with knowledge. By enabling AI to access and utilize external information effectively, RAG opens new possibilities for creating more intelligent, useful, and trustworthy AI applications that can better serve human needs and goals. 
+
+  
+
+
+
+Click Select All to automatically check/uncheck all filters for this column.
+
+
+You can apply any number of filters to your table, repeating this same process across multiple columns.
+
+
+  
+
+
+
+You can also group your data by a field column, sorting the table into groups of records that contain the same value for that column.
+
+
+For instance, if you click Group by Proximity…
+
+
+  
+
+
+
+…the table is reconfigured into groups of records that share the same Proximity value.
+
+
+  
+
+
+
+Each group can be expanded by clicking on it. Doing so will display all the separate records that make up the group.
+
+
+  
+
+
+
+A group can be removed by clicking the X next to its name at the top of the screen.
+
+
+  
+
+
+
+Finally, you can autosize your columns, which changes the width of the columns so all the data for each individual field displays without getting cut off.
+
+
+Managing table display
+To change the orientation of fields in this table, click the Display icon in the top-right of the screen.
+
+
+  
+
+
+
+The subsequent drawer contains all the fields in the table, in the order that they are listed in the table.
+
+
+  
+
+
+
+For longer field lists, you can use the Find search field to locate a specific field based on keywords present in that field.
+
+
+  
+
+
+
+If a field contains any subfields (as with an Address field), these fields will be listed below the main field.
+
+
+  
+
+
+
+Checking off a subfield will cause it to appear below, where it can be moved and oriented like any other field.
+
+
+  
+
+
+
+Fields can be moved and reoriented by clicking and dragging the grid to the left of the field. The slider to the right of each field determines whether that field appears in the table. Toggling it off will cause that field to be hidden when viewing the table.
+
+
+  
+
+
+
+Clicking Show All automatically displays all fields. Clicking None automatically hides all fields. 
+
+
+  
+
+
+
+Fields can be pinned by clicking the pin icon next to them. Doing so will move them to the top of the list (and the front of the table). 
+
+
+  
+
+
+
+Pinned fields remain fixed at the front of the table when scrolling. A maximum of 5 fields can be pinned.
+
+
+  
+
+
+
+Adding a new record
+To add a new record to this table, click + Add Record.
+
+
+  
+
+
+
+The Add Record [d]page contains all fields that have been created for this Base Table (via the Fields section). Fields are organized on this page based on their configuration in the Forms section. For more info on organizing your fields into a form, check out the Forms section below.[e]
+
+
+Fill in any number of the fields present in the Add Record page. If a field is required, an asterisk (*) will be present next to its title.
+
+
+When you’ve finished filling in your fields, click Save to add your data to the table.
+
+
+  
+[f]
+
+
+Once saved, your new record can be found in the table, assuming that any filters applied to the table do not filter it out.
+
+
+  
+
+
+
+Additional options for records
+Right-clicking on a record opens a list of additional options for that record.
+
+
+  
+
+
+
+These include:
+* Edit Record
+* Watch Record
+* Audit Logs
+* Comments
+* Documents
+* Copy Link
+* Delete Record
+* Copy
+* Paste
+* Chart Range
+
+
+Edit Record opens the Edit Record panel, which allows you to configure the record. In addition to editing the data for that record, you can watch the record, access its history, leave a comment, copy a link to the record, and upload a document, all of which are options when you right-click on the record.
+
+
+  
+
+
+
+Watch Record means that you will receive a notification whenever any other user makes an edit or comment, or uploads a document to that record. 
+
+
+  
+
+
+
+For more information on notifications, check out our Notifications guide[g].
+
+
+Clicking Audit Logs or History will take you to the History page for that record. For more info on History, check out the History section below[h].
+
+
+Comments[i] opens the Comments panel, where all previous comments for this record can be found. You can leave a new comment in the Leave a comment field, then click Save to save that comment, adding it to the list below.
+
+
+  
+
+
+
+Documents opens the Documents panel, which allows you to upload supporting documents to this record. Any document categories that have been created ________ will appear in the initial Documents section. 
+
+
+You can add documents to one of these categories, or upload miscellaneous documents using the Miscellaneous page.
+
+
+  
+
+
+
+In either case, click the Browse or drop files + button to upload documents from your device. Then select a category using the Select Category dropdown if you’re uploading to the Documents page. Once you’ve finished, click the checkmark icon to save your document.
+
+
+  
+
+
+
+The document will appear below.
+
+
+  
+
+
+
+Copy Link copies a link to this record, allowing you to share that link with other members of your organization. This link will take others to the Edit Record page for the linked record.
+
+
+  
+
+
+
+The Delete Record option only appears for admin users. Clicking Delete Record deletes the chosen record from the table. Doing so causes a dialog to appear, confirming that you would like to delete the record. Clicking Yes will delete the record, permanently removing it and all its data from the table.
+
+
+  
+
+
+
+Copy copies any data from the chosen field into your clipboard.
+
+
+Finally, Chart Range allows you to create charts from the data in your record(s). You can learn more about creating these charts in our Creating charts from your data[j] guide.
+
+
+Exporting your table
+To export your Data table, click the Export icon at the top of the screen. You can choose to export your table as a CSV or an Excel file.
+
+
+  
+
+
+
+Form
+The Form page allows you to organize and parse information in the Data table into a form for quicker access to relevant fields. 
+
+
+On this page, your form is located on the left side, and all the available fields from the Data table are located on the right. 
+
+
+When creating a form, fields must be added to a section. To add a section to your form, click + Add Section.
+
+
+  
+
+
+
+Provide a name for your section, then hit Enter or click anywhere outside the section to create it.
+
+
+  
+
+
+
+You can create any number of other sections in your form by repeating the above process.
+
+
+With your sections created, you can begin adding fields to them. To do so, simply click and drag fields from the right side of the page to the section you would like to add it to.
+
+
+Fields can only be added to a single section in your form. Once a field has been added to a section in your form, it will become grayed-out and inaccessible.
+
+
+  
+
+
+
+With your sections created, you can easily rearrange the data in your sections by clicking and dragging individual fields into new arrangements in that section. You can also change the configuration of sections in your form by clicking and dragging them to new locations.
+
+
+  
+
+
+
+You can also change the size of the sections by clicking and dragging on the arrow located on the bottom-right corner of each section.
+
+
+  
+
+
+
+Once you’ve created and configured your sections, you can make further changes using the … dropdown. 
+
+
+  
+
+
+
+Click Rename to change the name of your section. You can lock a section in place in your form — meaning it will not change size or location, regardless of any changes in sections around it — by clicking Lock.
+
+
+Clicking Float Right will automatically minimize your section and send it to the right side of the form, locking it in the process. 
+
+
+Finally, you can delete a section by clicking Delete. Doing so will return any fields that have been added to that section back to the Fields section of the page.
+
+
+Once you’vce finished arranging and editing your sections, click Save to save your changes and create your form.
+
+
+  
+
+
+
+To note: A field will not appear on the Add Record or Edit Record panel if you do not add it to the form in this section. Required fields are automatically added to the form.
+
+
+Fields
+The Fields page allows you to create and manage the fields that are displayed in your Data table — and, by extension, your form. 
+
+
+To create a new field, click + Add Field.
+
+
+  
+
+
+
+
+
+Doing so opens the Add Field panel on the right side of the screen. Start by giving your field a name using the Name field, then selecting a field type from the Type dropdown.
+
+
+  
+
+
+
+Different field types have different configuration options, once selected. For instance, in this example we selected Currency, which results in several new fields populating below, allowing us to configure the field further. 
+
+
+  
+
+
+
+If you were to select Date or Multi-Select instead, a different series of options would appear below.
+
+
+Once you’ve finished configuring these options for your field, toggle the three sliders at the bottom of the form. These include:
+* Required
+* Tooltip
+* Note
+
+
+Required determines whether this field is required or not. A required field must be filled in whenever a user adds a new entry to the Data table.
+
+
+When a field is marked as Required, Yes will be displayed in the Required column of the Fields table.
+
+
+  
+
+
+
+In addition, a user will need to provide a value for this field whenever adding a record to the Data table.
+
+
+  
+
+
+
+To note: You cannot toggle Required on until a value has been provided for this field for all existing records. 
+
+
+The best option is to use filters to find the fields that have no response in the field, update those fields, and then make that field required after data has been entered for all instances of that field.  For tables with a high volume of records that need to be updated, please contact Pitchstone for support[k].
+
+
+Next, the Tooltip slider allows you to add tooltip text to your field. 
+
+
+  
+
+
+
+Once saved, this text displays in the Tooltip column of the Fields table.
+
+
+  
+
+
+
+It also displays when hovering over this field in the form while creating a new record.
+
+
+  
+
+
+
+Note allows you to create a note that will display in the Note column of the Fields table.[l][m]
+
+
+  
+
+
+
+Access
+Next up, the Access page allows you to determine which user roles are able to view and edit specific fields in your form.
+
+
+  
+
+
+
+In this table, all existing fields are listed in the far-left column. 
+
+
+  
+
+
+
+Each existing role appears as a column in this table, with a dropdown menu allowing you to choose one of three options for each field:
+* View
+* Edit
+* Hide
+
+
+Choosing View will allow all role users to view the chosen field in the form, but not interact with it. Edit allows those users to edit the contents of the chosen field, and Hide hides this field from the role entirely, not allowing users of that role to view or edit its contents.
+
+
+  
+
+
+
+To note: The Admin role automatically gets edit access to all fields.  
+
+
+To create a new role, click + Add Role.
+
+
+  
+
+
+
+Create a name for your role, then click Save. 
+
+
+  
+
+
+
+Your role will appear as a new column in the far-right side of the table.
+
+
+  
+
+
+
+When a new role is created, all fields are initially set to Hide by default.
+
+
+To save any changes you’ve made to this table before continuing, click Save in the top-right corner of the screen.
+
+
+  
+
+
+
+History
+The History page contains a table that logs all changes made to the Data table[n]. 
+
+
+This table includes a timestamp of when the change occurred (Timestamp), who made the change (Edited by), the category of the change (Action), a message specifying the action taken (Message), and a diagram of the specific changes made to the data (Changes).
+
+
+  
+
+
+
+In the Changes field, clicking Show all _ field changes will expand the list to show any additional field changes that are not initially shown.
+
+
+  
+
+
+
+In addition, the table initially displays the 10 most recent changes that have been made. To change the number of entries displayed, use the Records per page dropdown at the bottom of the page. You can also change the page using the arrows in the same section.
+
+
+  
+
+
+
+This table can be filtered to help find specific changes. To this end, there are three filter dropdowns located at the top of the page:
+
+
+* Select User
+* Select Field
+* Search Primary Key
+
+
+Select User is a dropdown containing all users who have ever made changes to the Data table. Selecting a user (or multiple users) in this dropdown will filter the table to only show entries with the chosen user(s) in the Edited by column.
+
+
+  
+
+
+
+Select Fields contains a list of all the fields located in the Data table. Selecting one or more of these fields will filter your list to only show entries where the chosen fields have been modified. 
+
+
+To note: In the case of a record being created, where multiple fields are modified in one action, an entry in the History table will include all those actions. 
+
+
+  
+
+
+
+However, the Select fields filter removes any of the field changes from each entry in the Changes column that do not correspond with the selected fields.
+
+
+  
+
+
+
+Finally, Search Primary Key allows you to search for the primary key number of a specific entry, corresponding with the number in the # column of the History table.
+
+
+  
+
+
+
+Settings
+Settings allows admin users to edit the name of the table itself. To do this, click Settings, then click Edit Table.
+
+
+  
+
+
+
+In the Table Settings panel that opens, you can change the name of the table, and choose from a list of icons below that will appear in the table’s title.
+
+
+For instance, if you were to change the table’s name to Region, add a globe icon and click Save…
+
+
+  
+
+
+
+…Then the name of the table will be changed, and a globe icon will appear above it in the left-hand table menu.
+
+
+  
+
+
+
+Any other users with access to the affected table will see these changes.
+[a]Anchor link to these sections for ToC
+[b]we have a ticket to change this UI.  There will be a navigation item for Tables, and then a panel opens with the list of all the base tables, utility tables, and reference tables.
+[c]Anchor link to this section.
+[d]When we get to the Hub on our roadmap (in the next couple of months) we will do away with the panel in favor of a full page experience for adding a record and editing records.
+[e]Anchor link
+[f]Replace this screenshot once the drawer is replaced in the UI.
+[g]Link to this, once written.
+[h]Anchor link to this.
+[i]Comments and Documents could be broken into separate articles.
+[j]Link to this, once created.
+[k]Link to support chat/details, once available.
+[l]Does this show up anywhere else?
+[m]This is not working, and hasn't been for some time.  It just hasn't been a priority to fix.
+[n]each individual record also has a History page
