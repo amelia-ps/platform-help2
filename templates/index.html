@@ -1,145 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Help Chat Preview</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMPLE RAG CHATBOT</title>
+    <title>Platform Help Chat</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: "Times New Roman", Times, serif;
-            line-height: 1.6;
-            background-color: darkblue;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #2563eb;
-        }
-        .chat-container {
-            width: 90%;
-            max-width: 800px;
-            height: 90vh;
-            background-color: white;
-            border: 2px solid #2563eb;
-            display: flex;
-            flex-direction: column;
-        }
-        .chat-header {
-            padding: 20px;
-            background-color: #2563eb;
-            color: white;
-            border-bottom: 2px solid #2563eb;
-        }
         .chat-header h1 {
-            font-size: 1.5rem;
-            font-weight: normal;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             color: darkblue !important;
         }
         .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background-color: white;
             padding-bottom: 30px;
-        }
-        .message {
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            max-width: 80%;
-            word-wrap: break-word;
-            border: 1px solid #2563eb;
-        }
-        .message.user {
-            background-color: white;
-            color: black;
-            margin-left: auto;
-            border: 1px solid black;
-        }
-        .message.bot {
-            background-color: white;
-            color: green;
-            margin-right: auto;
-            border: 1px solid green;
-        }
-        .message.system {
-            background-color: white;
-            color: #2563eb;
-            font-size: 0.9em;
-            border: 1px dashed #2563eb;
-            margin: 10px auto;
-            max-width: 90%;
-        }
-        .message.error {
-            background-color: #2563eb;
-            color: white;
-            margin: 10px auto;
-            max-width: 90%;
-        }
-        .chat-input {
-            padding: 20px;
-            border-top: 2px solid #2563eb;
-            background-color: white;
-        }
-        #chat-form {
-            display: flex;
-            gap: 10px;
-        }
-        #user-input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #2563eb;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 1rem;
-            background-color: white;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #2563eb;
-            color: white;
-            border: 1px solid #2563eb;
-            cursor: pointer;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        button:hover {
-            background-color: white;
-            color: #2563eb;
-        }
-        button:disabled {
-            background-color: #93c5fd;
-            color: white;
-            cursor: not-allowed;
-        }
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: white;
-            border: 1px solid #2563eb;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2563eb;
-            border: 1px solid #2563eb;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #1d4ed8;
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
+<div class="chat-container">
+<div class="chat-header">
+            <h1>SAMPLE RAG CHATBOT</h1>
             <div style="margin-bottom: 10px;">
                 <svg width="200" height="40" viewBox="0 0 500 80" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Blue squares pattern -->
                     <rect x="0" y="0" width="15" height="15" fill="#1e40af"/>
                     <rect x="15" y="0" width="15" height="15" fill="#3b82f6"/>
                     <rect x="30" y="0" width="15" height="15" fill="#60a5fa"/>
@@ -160,37 +40,33 @@
                     <rect x="30" y="45" width="15" height="15" fill="#ffffff"/>
                     <rect x="45" y="45" width="15" height="15" fill="#000000"/>
                     
+                    <!-- Text -->
                     <text x="80" y="45" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#333333">Pitchstone</text>
                 </svg>
             </div>
             <h1>Platform Help Chat</h1>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <div class="message bot">
-                Welcome to the RAG Chatbot. I am ready to answer your questions about the text I've been trained on.
-            </div>
-            <div class="message user">
-                What are the main features of the platform?
-            </div>
-            <div class="message bot">
-                The platform includes several key features: automated workflows, real-time analytics, collaborative tools, and customizable dashboards. These features help streamline operations and improve decision-making across your organization.
-            </div>
-            <div class="message user">
-                How do I get started with setting up my account?
-            </div>
-            <div class="message bot">
-                To get started, you'll need to complete the initial setup process which includes: creating your profile, configuring your workspace preferences, and connecting your data sources. The setup wizard will guide you through each step.
-            </div>
-            <div class="message system">
-                Context used: Setup documentation, User onboarding guide
-            </div>
-        </div>
-        <div class="chat-input">
-            <form id="chat-form">
-                <input type="text" id="user-input" placeholder="Enter your question..." required>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    </div>
+</div>
+<div class="chat-messages" id="chat-messages">
+<div class="message bot">
+@@ -23,7 +58,6 @@ <h1>SAMPLE RAG CHATBOT</h1>
+</form>
+</div>
+</div>
+
+<script>
+document.getElementById('chat-form').addEventListener('submit', async (e) => {
+e.preventDefault();
+@@ -77,7 +111,6 @@ <h1>SAMPLE RAG CHATBOT</h1>
+submitButton.disabled = false;
+}
+});
+
+function addMessage(text, type) {
+const messagesDiv = document.getElementById('chat-messages');
+const messageDiv = document.createElement('div');
+@@ -88,4 +121,4 @@ <h1>SAMPLE RAG CHATBOT</h1>
+}
+</script>
 </body>
+</html> 
 </html>
