@@ -1,71 +1,29 @@
-# RAG Chatbot with Mistral AI
+# Pitchstone Platform RAG Assistant
 
-A Retrieval-Augmented Generation (RAG) chatbot built with Flask and Mistral AI.
+A Retrieval-Augmented Generation (RAG) system designed to help users understand and navigate the Pitchstone Platform through intelligent question-answering and documentation assistance.
 
-**Created by [Halim Madi](https://www.halimmadi.com)**
+## Overview
 
-This is a sample project designed for students, workshops, and educational purposes. Feel free to use, modify, and distribute this code as you wish for learning and development.
+This RAG assistant leverages advanced language models combined with a comprehensive knowledge base of Pitchstone Platform documentation, tutorials, and best practices. Users can ask natural language questions about the platform and receive accurate, contextual responses backed by relevant source material.
 
-## About the Creator
+## Features
 
-- **Website**: [www.halimmadi.com](https://www.halimmadi.com)
-- **Instagram**: [@yalla_halim](https://www.instagram.com/yalla_halim/)
+- **Intelligent Q&A**: Ask questions about Pitchstone Platform features, workflows, and best practices
+- **Context-Aware Responses**: Leverages relevant documentation and examples for comprehensive answers
+- **Source Attribution**: All responses include references to original documentation sources
+- **Multi-Modal Support**: Handles text queries with support for various question types
+- **Real-Time Updates**: Knowledge base stays current with platform changes and updates
 
-## Setup
+## Getting Started
 
-1. Clone the repository
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Create a `.env` file with your Mistral API key:
-   ```
-   MISTRAL_API_KEY=your_api_key_here
-   ```
-5. Add your text file as `essay.txt` in the project root
+### Prerequisites
 
-## Local Development
+- Python 3.8 or higher
+- API access to your chosen LLM provider (OpenAI, Anthropic, etc.)
+- Vector database (Pinecone, Weaviate, or ChromaDB)
 
-Run the Flask application:
+### Installation
+
+1. Clone the repository:
 ```bash
-python app.py
-```
-
-The application will be available at `http://localhost:5001`
-
-## Deployment to Vercel
-
-1. Push your code to GitHub
-2. Connect your GitHub repository to Vercel
-3. Add your environment variables in the Vercel dashboard:
-   - `MISTRAL_API_KEY`: Your Mistral API key
-4. Deploy!
-
-## Environment Variables
-
-- `MISTRAL_API_KEY`: Your Mistral AI API key (required)
-
-## Project Structure
-
-- `app.py`: Main Flask application
-- `templates/`: HTML templates
-- `static/`: Static files (CSS, JS)
-- `essay.txt`: Source text for the RAG system
-- `requirements.txt`: Python dependencies
-- `vercel.json`: Vercel deployment configuration
-
-## Usage and Licensing
-
-This project is provided as a learning resource for students and workshop participants. You are free to:
-
-- Use this code for educational purposes
-- Modify and adapt it for your own projects
-- Share it with others for learning
-- Use it in workshops and tutorials
-
-Feel free to reach out to [Halim Madi](https://www.halimmadi.com) with any questions or feedback! 
+git clone https://github.com/yourusername/p
