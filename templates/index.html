@@ -3,122 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Help Chat</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Platform Help Chat Preview</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.6;
+            background-color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2563eb;
+        }
+        .chat-container {
+            width: 90%;
+            max-width: 800px;
+            height: 90vh;
+            background-color: white;
+            border: 2px solid #2563eb;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            padding: 20px;
+            background-color: #2563eb;
+            color: white;
+            border-bottom: 2px solid #2563eb;
+        }
         .chat-header h1 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: darkblue !important;
         }
         .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: white;
             padding-bottom: 30px;
         }
-    </style>
-</head>
-<body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <div style="margin-bottom: 10px;">
-                <svg width="200" height="40" viewBox="0 0 500 80" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Blue squares pattern -->
-                    <rect x="0" y="0" width="15" height="15" fill="#1e40af"/>
-                    <rect x="15" y="0" width="15" height="15" fill="#3b82f6"/>
-                    <rect x="30" y="0" width="15" height="15" fill="#60a5fa"/>
-                    <rect x="45" y="0" width="15" height="15" fill="#93c5fd"/>
-                    
-                    <rect x="0" y="15" width="15" height="15" fill="#ffffff"/>
-                    <rect x="15" y="15" width="15" height="15" fill="#60a5fa"/>
-                    <rect x="30" y="15" width="15" height="15" fill="#93c5fd"/>
-                    <rect x="45" y="15" width="15" height="15" fill="#dbeafe"/>
-                    
-                    <rect x="0" y="30" width="15" height="15" fill="#1e40af"/>
-                    <rect x="15" y="30" width="15" height="15" fill="#ffffff"/>
-                    <rect x="30" y="30" width="15" height="15" fill="#60a5fa"/>
-                    <rect x="45" y="30" width="15" height="15" fill="#93c5fd"/>
-                    
-                    <rect x="0" y="45" width="15" height="15" fill="#000000"/>
-                    <rect x="15" y="45" width="15" height="15" fill="#ffffff"/>
-                    <rect x="30" y="45" width="15" height="15" fill="#ffffff"/>
-                    <rect x="45" y="45" width="15" height="15" fill="#000000"/>
-                    
-                    <!-- Text -->
-                    <text x="80" y="45" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#333333">Pitchstone</text>
-                </svg>
-            </div>
-            <h1>Platform Help Chat</h1>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <div class="message bot">
-                Welcome to the RAG Chatbot. I am ready to answer your questions about the text I've been trained on.
-            </div>
-        </div>
-        <div class="chat-input">
-            <form id="chat-form">
-                <input type="text" id="user-input" placeholder="Enter your question..." required>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    </div>
-    <script>
-        document.getElementById('chat-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const userInput = document.getElementById('user-input');
-            const question = userInput.value;
-            const submitButton = e.target.querySelector('button');
-            
-            // Disable the submit button while processing
-            submitButton.disabled = true;
-            
-            // Add user message to chat
-            addMessage(question, 'user');
-            userInput.value = '';
-            
-            try {
-                console.log('Sending request to server...');
-                const response = await fetch('/ask', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ question: question })
-                });
-                
-                console.log('Response received:', response);
-                
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                console.log('Data received:', data);
-                
-                // Add bot response to chat
-                addMessage(data.answer, 'bot');
-                
-                // Add context if available
-                if (data.context && data.context.length > 0) {
-                    addMessage('Context used:', 'system');
-                    data.context.forEach((chunk, index) => {
-                        addMessage(`Chunk ${index + 1}: ${chunk}`, 'system');
-                    });
-                }
-            } catch (error) {
-                console.error('Error details:', error);
-                addMessage(`Error: ${error.message}`, 'error');
-            } finally {
-                // Re-enable the submit button
-                submitButton.disabled = false;
-            }
-        });
-        function addMessage(text, type) {
-            const messagesDiv = document.getElementById('chat-messages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${type}`;
-            messageDiv.textContent = text;
-            messagesDiv.appendChild(messageDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-    </script>
-</body>
-</html>
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+            border: 1px solid #
+    
