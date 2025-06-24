@@ -17,7 +17,7 @@ body {
     width: 90%;
     max-width: 800px;
     height: 90vh;
-    background-color: white;
+    background-color: lilac;
     border: 2px solid #2563eb;
     display: flex;
     flex-direction: column;
